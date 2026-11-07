@@ -3,104 +3,292 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PriceCompare India</title>
+
+<title>Price Compare India</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#f3f5f9;color:#222}
-header{background:#102b50;color:white;padding:20px;text-align:center}
-header h1{margin:0;font-size:27px}
-header p{margin-bottom:0}
-.search{padding:20px;text-align:center}
-input{width:90%;max-width:550px;padding:14px;border:1px solid #ccc;border-radius:8px;font-size:16px}
-h2{text-align:center}
-.categories{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:10px}
-.categories button{padding:10px 16px;border:0;border-radius:20px;background:#dce8f8;cursor:pointer}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;padding:20px}
-.card{background:white;padding:15px;border-radius:12px;box-shadow:0 2px 9px #ddd;text-align:center}
-.card img{width:100%;height:170px;object-fit:contain}
-.price{color:#087b42;font-size:23px;font-weight:bold}
-.offer{background:#e4f8eb;padding:8px;border-radius:7px;color:#087b42}
-a{display:inline-block;background:#102b50;color:white;padding:11px 20px;border-radius:7px;text-decoration:none;margin-top:10px}
-footer{text-align:center;background:#102b50;color:white;padding:20px}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: Arial, sans-serif;
+background: #f1f3f6;
+color: #222;
+}
+
+header {
+background: #087f5b;
+color: white;
+padding: 22px;
+text-align: center;
+}
+
+header h1 {
+font-size: 28px;
+}
+
+header p {
+margin-top: 8px;
+}
+
+.search {
+text-align: center;
+padding: 20px;
+background: white;
+}
+
+.search input {
+width: 90%;
+max-width: 500px;
+padding: 13px;
+border: 1px solid #aaa;
+border-radius: 8px;
+font-size: 16px;
+}
+
+.categories {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 10px;
+padding: 15px;
+}
+
+.categories button {
+padding: 10px 18px;
+border: none;
+background: #087f5b;
+color: white;
+border-radius: 6px;
+cursor: pointer;
+}
+
+.products {
+display: grid;
+grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+gap: 20px;
+padding: 20px;
+}
+
+.card {
+background: white;
+border-radius: 12px;
+padding: 15px;
+text-align: center;
+box-shadow: 0 2px 8px #ccc;
+}
+
+.card img {
+width: 100%;
+height: 180px;
+object-fit: contain;
+}
+
+.card h3 {
+margin: 12px 0;
+}
+
+.price {
+color: #087f5b;
+font-size: 22px;
+font-weight: bold;
+margin: 10px;
+}
+
+.card a {
+display: inline-block;
+margin: 5px;
+padding: 9px 12px;
+background: #087f5b;
+color: white;
+text-decoration: none;
+border-radius: 5px;
+font-size: 13px;
+}
+
+.card a:hover {
+background: #055c42;
+}
+
+footer {
+background: #222;
+color: white;
+text-align: center;
+padding: 20px;
+margin-top: 25px;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>🛒 PriceCompare India</h1>
-<p>सभी शॉपिंग ऐप्स की कीमत एक जगह तुलना करें</p>
+<h1>PRICE COMPARE INDIA</h1>
+<p>हर सामान की कीमत की तुलना करें और पैसे बचाएं!</p>
 </header>
 
 <div class="search">
-<input type="text" id="search" placeholder="मोबाइल, कपड़े, जूते खोजें..." onkeyup="searchProducts()">
+<input
+type="text"
+id="search"
+placeholder="मोबाइल, कपड़े, जूते खोजें..."
+onkeyup="searchProducts()">
 </div>
-
-<h2>अपनी पसंद की कैटेगरी चुनें</h2>
 
 <div class="categories">
+
 <button onclick="filterProducts('all')">सभी</button>
+
 <button onclick="filterProducts('mobile')">मोबाइल</button>
+
+<button onclick="filterProducts('shoes')">जूते</button>
+
+<button onclick="filterProducts('clothes')">कपड़े</button>
+
 <button onclick="filterProducts('laptop')">लैपटॉप</button>
-<button onclick="filterProducts('fashion')">फैशन</button>
+
+<button onclick="filterProducts('watch')">घड़ी</button>
+
 </div>
 
-<h2>🔥 लोकप्रिय प्रोडक्ट</h2>
-
-<div class="products" id="products">
+<div class="products" id="productList">
 
 <div class="card" data-category="mobile">
-<img src="https://placehold.co/300x200?text=Smartphone" alt="मोबाइल">
+
+<img src="https://images.unsplash.com/photo-1511701360374-cf7e4c6f3f17?w=500" alt="Smartphone">
+
 <h3>Samsung Smartphone</h3>
-<p>Amazon: ₹15,999</p>
-<p>Flipkart: ₹15,499</p>
-<p class="price">सबसे कम: ₹15,499</p>
-<p class="offer">आपकी बचत: ₹500</p>
-<a href="https://www.flipkart.com/" target="_blank">खरीदें</a>
+
+<p class="price">₹12,999</p>
+
+<a href="https://www.amazon.in/s?k=samsung+smartphone" target="_blank">Amazon</a>
+
+<a href="https://www.flipkart.com/search?q=samsung+smartphone" target="_blank">Flipkart</a>
+
+<a href="https://www.meesho.com/search?q=mobile" target="_blank">Meesho</a>
+
 </div>
+
+
+<div class="card" data-category="shoes">
+
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Shoes">
+
+<h3>Sports Shoes</h3>
+
+<p class="price">₹899</p>
+
+<a href="https://www.amazon.in/s?k=sports+shoes" target="_blank">Amazon</a>
+
+<a href="https://www.flipkart.com/search?q=sports+shoes" target="_blank">Flipkart</a>
+
+<a href="https://www.meesho.com/search?q=sports+shoes" target="_blank">Meesho</a>
+
+</div>
+
+
+<div class="card" data-category="clothes">
+
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500" alt="Tshirt">
+
+<h3>Men T-Shirt</h3>
+
+<p class="price">₹399</p>
+
+<a href="https://www.amazon.in/s?k=men+tshirt" target="_blank">Amazon</a>
+
+<a href="https://www.flipkart.com/search?q=men+tshirt" target="_blank">Flipkart</a>
+
+<a href="https://www.meesho.com/search?q=men+tshirt" target="_blank">Meesho</a>
+
+</div>
+
 
 <div class="card" data-category="laptop">
-<img src="https://placehold.co/300x200?text=Laptop" alt="लैपटॉप">
+
+<img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500" alt="Laptop">
+
 <h3>HP Laptop</h3>
-<p>Amazon: ₹45,999</p>
-<p>Flipkart: ₹43,999</p>
-<p class="price">सबसे कम: ₹43,999</p>
-<p class="offer">आपकी बचत: ₹2,000</p>
-<a href="https://www.flipkart.com/" target="_blank">खरीदें</a>
+
+<p class="price">₹35,999</p>
+
+<a href="https://www.amazon.in/s?k=hp+laptop" target="_blank">Amazon</a>
+
+<a href="https://www.flipkart.com/search?q=hp+laptop" target="_blank">Flipkart</a>
+
+<a href="https://www.meesho.com/search?q=laptop" target="_blank">Meesho</a>
+
 </div>
 
-<div class="card" data-category="fashion">
-<img src="https://placehold.co/300x200?text=Shoes" alt="जूते">
-<h3>Sports Shoes</h3>
-<p>Amazon: ₹1,499</p>
-<p>Flipkart: ₹1,299</p>
-<p class="price">सबसे कम: ₹1,299</p>
-<p class="offer">आपकी बचत: ₹200</p>
-<a href="https://www.flipkart.com/" target="_blank">खरीदें</a>
+
+<div class="card" data-category="watch">
+
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Watch">
+
+<h3>Smart Watch</h3>
+
+<p class="price">₹1,499</p>
+
+<a href="https://www.amazon.in/s?k=smart+watch" target="_blank">Amazon</a>
+
+<a href="https://www.flipkart.com/search?q=smart+watch" target="_blank">Flipkart</a>
+
+<a href="https://www.meesho.com/search?q=smart+watch" target="_blank">Meesho</a>
+
 </div>
 
 </div>
 
 <footer>
-<p>PriceCompare India</p>
-<p>सही कीमत चुनें, पैसे बचाएँ!</p>
-<p>नोट: ये केवल डेमो कीमतें हैं, वास्तविक लाइव कीमतें नहीं।</p>
+<p>© 2026 PRICE COMPARE INDIA</p>
+<p>Shop Smart | Save Money</p>
 </footer>
 
 <script>
-function searchProducts(){
-let value=document.getElementById("search").value.toLowerCase();
-document.querySelectorAll(".card").forEach(card=>{
-card.style.display=card.innerText.toLowerCase().includes(value)?"block":"none";
+
+function searchProducts() {
+
+let input = document.getElementById("search").value.toLowerCase();
+
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+let name = card.querySelector("h3").innerText.toLowerCase();
+
+card.style.display = name.includes(input) ? "block" : "none";
+
 });
+
 }
 
-function filterProducts(category){
-document.querySelectorAll(".card").forEach(card=>{
-card.style.display=(category==="all"||card.dataset.category===category)?"block":"none";
-});
+function filterProducts(category) {
+
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+if(category === "all" || card.dataset.category === category) {
+
+card.style.display = "block";
+
+} else {
+
+card.style.display = "none";
+
 }
+
+});
+
+document.getElementById("search").value = "";
+
+}
+
 </script>
 
 </body>
